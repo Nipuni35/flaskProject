@@ -36,7 +36,7 @@ def predict():
     im = im.astype("float32") / 255
     im = np.expand_dims(im, -1)[None]
     out = id2class[np.argmax(model.predict(im))]
-    return out
+    return flask.render_template('prediction_input.html', data=out)
 
 
 if __name__ == '__main__':
